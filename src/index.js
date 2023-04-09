@@ -8,7 +8,7 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 server.use(cors());
 
-server.post("/", (req, res) => {
+server.post("/person", (req, res) => {
   const form = formidable({ multiples: true });
   form.parse(req, (err, fields, files) => {
     console.log("fields: ", fields);
@@ -16,7 +16,9 @@ server.post("/", (req, res) => {
     res.send({ success: true });
   });
 });
-
+server.get('/people',(req,res)=>{
+  
+})
 server.listen(8080, () => {
   console.log("listning on port");
 });
